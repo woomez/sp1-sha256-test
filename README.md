@@ -90,3 +90,15 @@ command:
 ```sh
 SP1_PROVER=network SP1_PRIVATE_KEY=... cargo run --release --bin evm
 ```
+
+## when running with precompiles:
+Add the following to program's Cargo.toml file
+
+sha2 = { git = "https://github.com/sp1-patches/RustCrypto-hashes.git", package = "sha2", branch = "patch-v0.10.8" }
+
+[patch.crates-io]
+sha2 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", package = "sha2", branch = "patch-sha2-v0.10.8" }
+
+## when running without:
+replace the dependency above with
+sha2 = "0.10.8"
